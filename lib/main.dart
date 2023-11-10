@@ -33,8 +33,6 @@ class MyApp extends StatelessWidget {
         "/loading": (context) => const LoadingPage(),
         "/userHome": (context) => const StoreHome(),
         "/storeTabs": (context) => const HomeTab(),
-        // "/details": (context) => const DetailsScreeen()
-        // "model": (context) => const Model3d()
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(

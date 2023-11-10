@@ -5,6 +5,8 @@ class SharedPrefHelper{
   static String nameKey = 'nameKey';
   static String emailKey = 'emailKey';
 
+  //Save details to local storage
+
   Future<bool> saveUserID(String getUserId) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.setString(iDKey, getUserId);
@@ -20,7 +22,7 @@ class SharedPrefHelper{
     return prefs.setString(nameKey, getUserName);
   }
 
-  //get
+  //get from local storage
 
   Future<String?> getUserID() async{
     SharedPreferences prefs = await SharedPreferences.getInstance();

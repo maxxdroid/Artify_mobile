@@ -14,10 +14,8 @@ class _LoadingPageState extends State<LoadingPage> {
   displaySplash() {
     Timer(const Duration(seconds: 6), () async {
       Navigator.pushReplacementNamed(context, "/authtabs");
-      // Navigator.pushReplacementNamed(context, "/storeTabs");
     });
   }
-  // FA8232
 
   @override
   void initState() {

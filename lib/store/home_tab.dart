@@ -52,8 +52,6 @@ class _HomeTabState extends State<HomeTab> {
         padding: const EdgeInsets.symmetric(horizontal:40.0),
         child: BottomNavigationBar(
           backgroundColor: Colors.white,
-          // showSelectedLabels: true,
-          // showUnselectedLabels: false,
           elevation: 0,
           currentIndex: pageIndex,
           type: BottomNavigationBarType.fixed,
