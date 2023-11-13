@@ -4,6 +4,8 @@ import 'package:nerds_project/functions/shared_pref.dart';
 import 'package:nerds_project/models/user.dart';
 
 class AuthMethods {
+
+  // Creating a User
   Future<void> createUser(User newUser) async {
     final response = await http.post(
       Uri.parse("https://fox-current-filly.ngrok-free.app/api/register/"),
@@ -29,6 +31,7 @@ class AuthMethods {
     }
   }
 
+  //Signing in a User
   Future<void> signInUser(User newUser) async {
     final response = await http.post(
       Uri.parse("https://fox-current-filly.ngrok-free.app/api/signin/"),
@@ -40,10 +43,6 @@ class AuthMethods {
     );
 
     if (response.statusCode == 200) {
-      // User Sign in was successful (status code 201 - Created)
-      // print('Response body: ${response.body}');
-      // final responseData = json.decode(response.body);
-      // final token = responseData['auth_token'];
     } else {
       // Handle errors when user creation fails
       throw Exception(

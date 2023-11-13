@@ -66,7 +66,8 @@ class _StoreHomeState extends State<StoreHome> {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(child: CircularProgressIndicator());
                   } else if (snapshot.hasError) {
-                    return Center(child: Text('Network Error: ${snapshot.error}'));
+                    return Center(
+                        child: Text('Network Error: ${snapshot.error}'));
                   } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
                     return const Center(child: Text('No products available'));
                   } else {

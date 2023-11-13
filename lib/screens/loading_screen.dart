@@ -38,7 +38,9 @@ class _LoadingPageState extends State<LoadingPage> {
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             LoadingAnimationWidget.threeRotatingDots(
               color: Colors.purpleAccent,
               size: 100,

@@ -9,13 +9,12 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-
   String name = 'Artify';
   String mail = 'artify@amalitech.com';
 
   getDetails() async {
     name = (await SharedPrefHelper().getUserName())!;
-  mail = (await SharedPrefHelper().getUserEmail())!;
+    mail = (await SharedPrefHelper().getUserEmail())!;
   }
 
   @override
@@ -94,8 +93,13 @@ class _ProfileState extends State<Profile> {
               onTap: () {},
               child: Row(
                 children: [
-                  Icon(Icons.list_alt_outlined, color: Colors.deepPurpleAccent[200],),
-                  const SizedBox(width: 10,),
+                  Icon(
+                    Icons.list_alt_outlined,
+                    color: Colors.deepPurpleAccent[200],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   Text(
                     'My Orders',
                     style: TextStyle(
@@ -112,8 +116,13 @@ class _ProfileState extends State<Profile> {
               onTap: () {},
               child: Row(
                 children: [
-                  Icon(Icons.settings, color: Colors.deepPurpleAccent[200],),
-                  const SizedBox(width: 10,),
+                  Icon(
+                    Icons.settings,
+                    color: Colors.deepPurpleAccent[200],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   const Text("Settings",
                       style: TextStyle(
                           color: Colors.deepPurpleAccent,
@@ -132,8 +141,13 @@ class _ProfileState extends State<Profile> {
               },
               child: Row(
                 children: [
-                  Icon(Icons.power_settings_new_sharp, color: Colors.deepPurpleAccent[200],),
-                  const SizedBox(width: 10,),
+                  Icon(
+                    Icons.power_settings_new_sharp,
+                    color: Colors.deepPurpleAccent[200],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   const Text("Log 0ut",
                       style: TextStyle(
                           color: Colors.deepPurpleAccent,

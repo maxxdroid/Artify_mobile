@@ -15,9 +15,9 @@ class _SearchState extends State<Search> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
+          child: Column(
+        children: [
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -36,28 +36,29 @@ class _SearchState extends State<Search> {
           ),
           SizedBox(
             height: 600,
-            child: FutureBuilder(future: DatabaseMethods().fetchProducts(),
-             builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
-              } else if (snapshot.hasError) {
-                return Center(child: Text('Network Error: ${snapshot.error}'));
-              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                return const Center(child: Text('No products available'));
-              } else {
-                final products = snapshot.data;
-                return ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: products!.length,
-                  itemBuilder: (context, index){
-                    return productCard(products[index]);
-                  });
-              }}
-             ),
+            child: FutureBuilder(
+                future: DatabaseMethods().fetchProducts(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(
+                        child: Text('Network Error: ${snapshot.error}'));
+                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                    return const Center(child: Text('No products available'));
+                  } else {
+                    final products = snapshot.data;
+                    return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: products!.length,
+                        itemBuilder: (context, index) {
+                          return productCard(products[index]);
+                        });
+                  }
+                }),
           )
-          ],
-        )
-      ),
+        ],
+      )),
     );
   }
 
@@ -99,7 +100,8 @@ class _SearchState extends State<Search> {
                   SizedBox(
                     // width: 80,
                     child: Text(
-                      product.subDescription ?? '', overflow: TextOverflow.clip,
+                      product.subDescription ?? '',
+                      overflow: TextOverflow.clip,
                       style: const TextStyle(fontSize: 12),
                     ),
                   ),
@@ -108,7 +110,8 @@ class _SearchState extends State<Search> {
                   ),
                   Text(
                     product.price ?? '',
-                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   )
                 ],
               )
@@ -116,5 +119,4 @@ class _SearchState extends State<Search> {
           )),
     );
   }
-
 }

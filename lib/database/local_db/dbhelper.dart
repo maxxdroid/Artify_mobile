@@ -4,8 +4,6 @@ import 'package:path/path.dart';
 import 'dart:io' as io;
 import '../../models/cart.dart';
 
-import '../../store/cart.dart';
-
 class DBHelper {
  static Database? _database;
 

@@ -14,7 +14,6 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
   int pageIndex = 0;
   late PageController pageController;
-  
 
   @override
   void initState() {
@@ -23,7 +22,7 @@ class _HomeTabState extends State<HomeTab> {
     setState(() {});
     pageController = PageController(initialPage: pageIndex);
 
-     pageController.addListener(() {
+    pageController.addListener(() {
       setState(() {
         pageIndex = pageController.page!.round();
       });
@@ -36,8 +35,6 @@ class _HomeTabState extends State<HomeTab> {
     super.dispose();
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -49,7 +46,7 @@ class _HomeTabState extends State<HomeTab> {
         children: const [StoreHome(), Search(), Carts(), Profile()],
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:40.0),
+        padding: const EdgeInsets.symmetric(horizontal: 40.0),
         child: BottomNavigationBar(
           backgroundColor: Colors.white,
           elevation: 0,

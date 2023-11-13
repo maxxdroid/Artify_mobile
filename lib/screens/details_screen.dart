@@ -3,7 +3,6 @@ import 'package:model_viewer_plus/model_viewer_plus.dart';
 import 'package:nerds_project/models/product.dart';
 
 class DetailsScreeen extends StatefulWidget {
-
   final Product product;
 
   final int index;
@@ -15,7 +14,6 @@ class DetailsScreeen extends StatefulWidget {
 }
 
 class _DetailsScreeenState extends State<DetailsScreeen> {
-
   Product? product;
   int index = 0;
 
@@ -59,7 +57,7 @@ class _DetailsScreeenState extends State<DetailsScreeen> {
                 Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30)),
-                  child:  SizedBox(
+                  child: SizedBox(
                     height: 300,
                     // width: 250,
                     child: ModelViewer(
@@ -68,57 +66,17 @@ class _DetailsScreeenState extends State<DetailsScreeen> {
                     ),
                   ),
                 ),
-                // SizedBox(
-                //   width: width * 0.8,
-                //   child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //     children: [
-                //       ClipRRect(
-                //         borderRadius: BorderRadius.circular(20),
-                //           child: Image.network(
-                //         "https://th.bing.com/th/id/OIP.YXP2XhbIzXRhFUzp4uFmgAHaHa?pid=ImgDet&rs=1",
-                //         width: 70,
-                //         height: 70,
-                //         fit: BoxFit.fill,
-                //       )),
-                //       ClipRRect(
-                //         borderRadius: BorderRadius.circular(20),
-                //           child: Image.network(
-                //         "https://s24990.pcdn.co/wp-content/uploads/2018/05/Baseball-Bat-Murder-27.jpg",
-                //         width: 70,
-                //         height: 70,
-                // \        fit: BoxFit.fill,
-                //       )),
-                //       ClipRRect(
-                //         borderRadius: BorderRadius.circular(20),
-                //           child: Image.network(
-                //         "https://th.bing.com/th/id/OIP.YXP2XhbIzXRhFUzp4uFmgAHaHa?pid=ImgDet&rs=1",
-                //         width: 70,
-                //         height: 70,
-                //         fit: BoxFit.fill,
-                //       )),
-                //       ClipRRect(
-                //         borderRadius: BorderRadius.circular(20),
-                //           child: Image.network(
-                //         "https://s24990.pcdn.co/wp-content/uploads/2018/05/Baseball-Bat-Murder-27.jpg",
-                //         width: 70,
-                //         height: 70,
-                //         fit: BoxFit.fill,
-                //       )),
-                //     ],
-                //   ),
-                // ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20, left: 10),
                   child: Text(
                     product!.subDescription ?? '',
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    style: const TextStyle(
+                        fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, left: 10),
-                  child: Text(
-                      product!.description ?? ""),
+                  child: Text(product!.description ?? ""),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20, left: 10),
@@ -186,7 +144,6 @@ class _DetailsScreeenState extends State<DetailsScreeen> {
                         ],
                       ),
                       Container(
-                        // color: Colors.grey,
                         decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(.3),
                             borderRadius: BorderRadius.circular(20)),
@@ -196,7 +153,6 @@ class _DetailsScreeenState extends State<DetailsScreeen> {
                         ),
                       ),
                       Container(
-                        // color: Colors.grey,
                         decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(.3),
                             borderRadius: BorderRadius.circular(20)),
@@ -241,7 +197,7 @@ class _DetailsScreeenState extends State<DetailsScreeen> {
                           width: width * 0.4,
                           child: ElevatedButton(
                             onPressed: () {
-                              print("..........${product!.image3d }");
+                              print("..........${product!.image3d}");
                             },
                             style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.deepPurple,

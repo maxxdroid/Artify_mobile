@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:nerds_project/auth/auth.dart';
 import 'package:nerds_project/models/user.dart';
 import 'package:nerds_project/widgets/loading_alert.dart';
-// import '../models/user.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
