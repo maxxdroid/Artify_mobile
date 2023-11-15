@@ -189,13 +189,19 @@ class _SignUpState extends State<SignUp> {
                     child: ElevatedButton(
                         onPressed: () {
                           final FormState? form = _formKey.currentState;
+
+                          //Validating user form
                           if (form!.validate()) {
+
+                            //Creating a User object and saving the user info
                             User newUser = User(
                               name: _nameController.text.trim(),
                               email: _emailController.text.trim(),
                               password: _passwordController.text.trim(),
                               username: _userNameController.text.trim()
                             );
+
+                            //Show a loading dialogue
                             showDialog(
                                 context: context,
                                 builder: (_) {
@@ -203,6 +209,8 @@ class _SignUpState extends State<SignUp> {
                                     message: 'Signing Up please wait...',
                                   );
                                 });
+
+                            //Creating a user
                             AuthMethods().createUser(newUser).then((value) =>
                                 Navigator.pushReplacementNamed(
                                     context, "/storeTabs").onError((error, stackTrace) {

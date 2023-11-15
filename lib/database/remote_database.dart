@@ -6,12 +6,12 @@ import 'package:nerds_project/models/product.dart';
 class DatabaseMethods {
   Future<List<Product>> fetchProducts() async {
     const apiUrl =
-        'https://fox-current-filly.ngrok-free.app/api/products/'; // Replace with your API endpoint
+        'https://fox-current-filly.ngrok-free.app/api/products/';
 
     final response = await http.get(Uri.parse(apiUrl));
 
     if (response.statusCode == 200) {
-      // If the server returns a 200 OK response, parse the JSON
+      // Parsing the JSON
       final List<dynamic> jsonList = json.decode(response.body);
 
       List<Product> products =
@@ -19,7 +19,7 @@ class DatabaseMethods {
 
       return products;
     } else {
-      // If the server did not return a 200 OK response, throw an exception.
+      
       throw Exception('Failed to load products');
     }
   }

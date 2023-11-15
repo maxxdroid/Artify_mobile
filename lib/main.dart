@@ -4,7 +4,7 @@ import 'package:nerds_project/auth/sign_in.dart';
 import 'auth/sign_up.dart';
 import 'package:nerds_project/screens/loading_screen.dart';
 import 'package:nerds_project/store/home_tab.dart';
-import 'package:nerds_project/store/store_home.dart';
+// import 'package:nerds_project/store/store_home.dart';
 
 import 'auth/tabview.dart';
 
@@ -19,7 +19,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
         "/signUp": (context) => const SignUp(),
         "/authtabs": (context) => const Tabs(),
         "/loading": (context) => const LoadingPage(),
-        "/userHome": (context) => const StoreHome(),
+        // "/userHome": (context) => const StoreHome(),
         "/storeTabs": (context) => const HomeTab(),
       },
       theme: ThemeData(

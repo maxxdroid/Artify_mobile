@@ -198,10 +198,10 @@ class _SignInState extends State<SignIn> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.network(
+                          Image.asset(
                               height: 40,
                               width: 40,
-                              "https://imagepng.org/wp-content/uploads/2019/08/google-icon.png"),
+                              "assets/google-icon.png"),
                           const SizedBox(
                             width: 20,
                           ),
