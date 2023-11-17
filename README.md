@@ -23,5 +23,7 @@ A flutter ecommerce Apllication that displays products in 3d
     </tr>
     <tr>
         <td><img src="assets/s4.jpg" width=250px height=500px /></td>
+        <td><img src="assets/s5.jpg" width=250px height=500px /></td>
+        <td><img src="assets/s6.jpg" width=250px height=500px /></td>
     </tr>
 </table>
