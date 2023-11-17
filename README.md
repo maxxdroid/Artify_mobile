@@ -1,16 +1,25 @@
-# nerds_project
+# artify
 
 A new Flutter project.
 
 ## Getting Started
+<p>
+A flutter ecommerce Apllication that displays products in 3d
+</p>
 
-This project is a starting point for a Flutter application.
+<p>
+    Currently, the 3d is available, some featues like the search and cart are not working.
+</p>
 
-A few resources to get you started if this is your first Flutter project:
+<p>
+ Flutter version used is 3.7.12
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<table>
+    <tr>
+        <td><img src="assets/s1.jpg" width=250px height=500px /></td>
+        <td><img src="assets/s2.jpg" width=250px height=500px/></td>
+        <td><img src="assets/s3.jpg" width=250px height=500px/></td>
+        <td><img src="assets/s4.jpg" width=250px height=500px/></td>
+    </tr>
+</table>

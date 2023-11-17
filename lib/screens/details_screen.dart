@@ -197,7 +197,6 @@ class _DetailsScreeenState extends State<DetailsScreeen> {
                           width: width * 0.4,
                           child: ElevatedButton(
                             onPressed: () {
-                              print("..........${product!.image3d}");
                             },
                             style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.deepPurple,
