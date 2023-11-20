@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:nerds_project/auth/auth.dart';
 import 'package:nerds_project/models/user.dart';
@@ -71,7 +73,7 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                       )),
-                      Padding(
+                  Padding(
                       padding: const EdgeInsets.only(
                           top: 0.0, left: 15, right: 15, bottom: 10),
                       child: TextFormField(
@@ -136,10 +138,10 @@ class _SignUpState extends State<SignUp> {
                             return "Field cannot be empty";
                           } else if (_passwordController.text.length < 8) {
                             return "Password cannot be less that 8 characters";
-                          } else if(_passwordController.text.trim() != _confirmPasswordController.text.trim()) {
+                          } else if (_passwordController.text.trim() !=
+                              _confirmPasswordController.text.trim()) {
                             return "Passwords don't match";
-                          }
-                           else {
+                          } else {
                             return null;
                           }
                         },
@@ -192,14 +194,12 @@ class _SignUpState extends State<SignUp> {
 
                           //Validating user form
                           if (form!.validate()) {
-
                             //Creating a User object and saving the user info
                             User newUser = User(
-                              name: _nameController.text.trim(),
-                              email: _emailController.text.trim(),
-                              password: _passwordController.text.trim(),
-                              username: _userNameController.text.trim()
-                            );
+                                name: _nameController.text.trim(),
+                                email: _emailController.text.trim(),
+                                password: _passwordController.text.trim(),
+                                username: _userNameController.text.trim());
 
                             //Show a loading dialogue
                             showDialog(
@@ -211,16 +211,27 @@ class _SignUpState extends State<SignUp> {
                                 });
 
                             //Creating a user
-                            AuthMethods().createUser(newUser).then((value) =>
+                            try {
+                              AuthMethods().createUser(newUser).then((value) =>
                                 Navigator.pushReplacementNamed(
-                                    context, "/storeTabs").onError((error, stackTrace) {
-                                      Navigator.pop(context);
-                              return ScaffoldMessenger.of(context)
+                                        context, "/storeTabs")
+                                    .onError((error, stackTrace) {
+                                  Navigator.pop(context);
+                                  return ScaffoldMessenger.of(context)
+                                      .showSnackBar(const SnackBar(
+                                    content:
+                                        Text("Sign Up Error please Try again"),
+                                    duration: Duration(seconds: 2),
+                                  ));
+                                }));
+                            } on TimeoutException {
+                              Navigator.pop(context);
+                              ScaffoldMessenger.of(context)
                                   .showSnackBar(const SnackBar(
-                                content: Text("Sign Up Error please Try again"),
+                                content: Text("TimeOut Error"),
                                 duration: Duration(seconds: 2),
                               ));
-                                    }));
+                            }
                           }
                         },
                         style: ElevatedButton.styleFrom(

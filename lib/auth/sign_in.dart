@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:nerds_project/auth/auth.dart';
 import 'package:nerds_project/models/user.dart';
@@ -125,18 +127,29 @@ class _SignInState extends State<SignIn> {
                                   );
                                 });
 
-                            AuthMethods()
-                                .signInUser(user)
-                                .then((value) => Navigator.pushReplacementNamed(
-                                    context, "/storeTabs"))
-                                .onError((error, stackTrace) {
+                            try {
+                              AuthMethods()
+                                  .signInUser(user)
+                                  .then((value) =>
+                                      Navigator.pushReplacementNamed(
+                                          context, "/storeTabs"))
+                                  .onError((error, stackTrace) {
+                                Navigator.pop(context);
+                                return ScaffoldMessenger.of(context)
+                                    .showSnackBar(const SnackBar(
+                                  content: Text(
+                                      "Sign In error kindly check your credentials"),
+                                  duration: Duration(seconds: 2),
+                                ));
+                              });
+                            } on TimeoutException {
                               Navigator.pop(context);
-                              return ScaffoldMessenger.of(context)
+                              ScaffoldMessenger.of(context)
                                   .showSnackBar(const SnackBar(
-                                content: Text("Sign In error kindly check your credentials"),
+                                content: Text("TimeOut Error"),
                                 duration: Duration(seconds: 2),
                               ));
-                            });
+                            }
                           }
                         },
                         style: ElevatedButton.styleFrom(
@@ -199,9 +212,7 @@ class _SignInState extends State<SignIn> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Image.asset(
-                              height: 40,
-                              width: 40,
-                              "assets/google-icon.png"),
+                              height: 40, width: 40, "assets/google-icon.png"),
                           const SizedBox(
                             width: 20,
                           ),

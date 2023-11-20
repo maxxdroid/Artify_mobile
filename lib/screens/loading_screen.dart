@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:nerds_project/functions/shared_pref.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({super.key});
@@ -11,14 +12,23 @@ class LoadingPage extends StatefulWidget {
 }
 
 class _LoadingPageState extends State<LoadingPage> {
-  displaySplash() {
+  bool status = false;
+
+  displaySplash() async {
     Timer(const Duration(seconds: 6), () async {
-      Navigator.pushReplacementNamed(context, "/authtabs");
+      status
+          ? Navigator.pushReplacementNamed(context, "/storeTabs")
+          : Navigator.pushReplacementNamed(context, "/authtabs");
     });
+  }
+
+  check () async {
+    status = (await SharedPrefHelper().getUserStatus())!;
   }
 
   @override
   void initState() {
+    check();
     super.initState();
     displaySplash();
   }

@@ -137,6 +137,7 @@ class _ProfileState extends State<Profile> {
             ),
             InkWell(
               onTap: () {
+                SharedPrefHelper().saveUserStatus(false);
                 Navigator.pushReplacementNamed(context, "/authtabs");
               },
               child: Row(
