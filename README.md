@@ -12,10 +12,6 @@ A flutter ecommerce Apllication that displays products in 3d
 </p>
 
 <p>
-    Currently, the 3d is available, some featues like the search and cart are not working.
-</p>
-
-<p>
  Flutter version used is 3.7.12
 </p>
 
